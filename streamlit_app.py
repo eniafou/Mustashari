@@ -16,8 +16,9 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
  
 def get_text():
-    input_text = st.text_input("You: ","آش حب الخاطر ...", key="input")
+    input_text = st.text_input(label = "you", placeholder="...آش حب الخاطر")
     return input_text
+
  
 user_input = get_text()
  
