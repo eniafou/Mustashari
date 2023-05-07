@@ -27,13 +27,22 @@ Or you can just click on [this link](https://eniafou-mustashari-streamlit-app-rw
 
 You can also look throughs the notebooks to better understand how the code works.
 ## Architecture
-![Flowchart](../media/final_b.pngs)
+![Flowchart](media/final_b.png)
 
 ## Difficulties and challenges
 This was our first time working on a project about generative AI. We had to learn how to use APIs and combine multiple technologies from multiple sources to achieve a specific goal.
-We had to learn about retrieval models, embeddings, cosine similarity, Hugging Face, prompt engineering ...
+We had to learn about retrieval models, embedding, cosine similarity, Hugging Face, prompt engineering ...
 
-In the begenning we wanted to use the OpenAI API to generate the final answers, but we soon learned that it wasn't free. We decided to work with **cohere** as an alternative, however we learned later on that it wasn't a robust model or at least we weren't 
+In the begenning we wanted to use the OpenAI API to generate the final answers, but we soon learned that it wasn't free. We decided to work with **cohere** as an alternative, however we learned later on that it wasn't a robust model or at least we weren't able to find a good prompt to feed to it.
+
+We tried multiple retrieval and embeddings models : **Chroma**, **CohereEmbedding**, **all-MiniLM-L12-v2**,**flaubert**, **spaCy**, **docquery**.
+The results weren't good on our dataset of laws written in french. We tried some multilangual and french embedding models like : **distiluse-base-multilingual-cased-v1**,  **dangvantuan/sentence-camembert-large**, **dangvantuan/sentence-camembert-base**. However, we couldn't get better results.
+
+We decided to translate the laws to english, we simply used google translate. The retrieval results using **all-MiniLM-L12-v2** with the translated laws were better, however due to the low quality of translation it is still not satisfactory. To solve this, we used two models (**all-MiniLM-L12-v2** + **spaCy**). The first one is a semantic model and the later one is a statistical model, each one of them retrieve 3 chunks of texts from the law. We then combined their results using **docquery**.
+
+The app is still very slow and impractical and need more developpement?
+
+
 ## Technology used and Credits
 - [No language left behind (Meta)](https://ai.facebook.com/research/no-language-left-behind/)
 - [miniLM](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)

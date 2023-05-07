@@ -24,3 +24,4 @@ SentencePiece
 PyMuPDF
 huggingface_hub
 numpy
+SentencePiece
