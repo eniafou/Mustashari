@@ -20,7 +20,7 @@ Mustashari is an app that enables Moroccans to access cheap legal consulting. Ou
 To use Mustashari on your machine you can …
 - Step 1: clone the repo
 - Step 2: run the command "pip install -r requirements"
-- Step 4: run the command "streamlit run streamlit _app.py"
+- Step 3: run the command "streamlit run streamlit _app.py"
 
 
 Or you can just click on [this link](https://eniafou-mustashari-streamlit-app-rw5r56.streamlit.app/) to use it on the web.
@@ -40,7 +40,9 @@ The results weren't good on our dataset of laws written in french. We tried some
 
 We decided to translate the laws to english, we simply used google translate. The retrieval results using **all-MiniLM-L12-v2** with the translated laws were better, however due to the low quality of translation it is still not satisfactory. To solve this, we used two models (**all-MiniLM-L12-v2** + **spaCy**). The first one is a semantic model and the later one is a statistical model, each one of them retrieve 3 chunks of texts from the law. We then combined their results using **docquery**.
 
-The app is still very slow and impractical and need more developpement?
+We found some powerful models in published by **Meta**, However we were only able to run a the weakest model because of computational costs.
+
+Finally, The app is still very slow and impractical and need more developpement.
 
 
 ## Technology used and Credits
